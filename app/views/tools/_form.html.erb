@@ -7,6 +7,10 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
+  <br>
+  <%= f.label :in_library %>
+  <%= f.select :in_library, options_for_select(["available"]), include_blank: true %>
+
 
   <%= f.submit %>
 <% end %>

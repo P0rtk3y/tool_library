@@ -7,12 +7,16 @@ Rails.application.routes.draw do
   post '/signup' => 'libraries#create'
 
   delete '/logout' => 'sessions#destroy'
-  resources :libraries do
-    resources :tools
+
+  resources :borrowers do
+    resources :loans
+  end
+  resources :loans
+  resources :tools do
+    resources :loans
   end
 
-  resource :sessions, :tools, :libraries, :loans, :borrowers
-
+  resources :libraries 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,3 +1,13 @@
-<h1>Your Tool Library:</h1>
+<h1><%=current_user.username %>'s Tool Library</h1>
+
+<% @tools.each do |t|%>
+    <li><%= link_to t.name, tool_path(t) %>:
+      <% if t.in_library %>
+        Available
+      <% else %>
+        On loan
+      <% end %>
+    </li>
+<% end %>
 
 <%= button_to "Logout", logout_path %>

@@ -1,1 +1,4 @@
-<h1>Edit Tool:</h1> 
+<h1>Edit <%= @tool.name %>:</h1>
+
+<%= render "form" %>
+<p><%= button_to "Delete Tool", tool_path(@tool), method: :delete %></p>
