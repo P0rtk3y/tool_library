@@ -1,5 +1,5 @@
 class LibrariesController < ApplicationController
-
+  skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
   #loads signup form
   def new
     @library = Library.new

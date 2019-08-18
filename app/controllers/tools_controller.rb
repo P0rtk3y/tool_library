@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-  before_action :require_login
+  before_action :redirect_if_not_logged_in
 
   def index
     @library = Library.find_by(id: params[:library_id])
@@ -8,6 +8,12 @@ class ToolsController < ApplicationController
   def new
     @library = Library.find_by(id: params[:library_id])
     @tool = Tool.new
+  end
+
+  def create
+  end 
+
+  def show
   end
 
 

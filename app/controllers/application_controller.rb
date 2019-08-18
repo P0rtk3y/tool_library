@@ -1,16 +1,19 @@
 class ApplicationController < ActionController::Base
+  before_action :redirect_if_not_logged_in 
+  helper_method :current_user, :logged_in?
+
   def current_user
-    @library = Library.find_by_id(session[:library_id])
+    @library ||= Library.find_by(id: session[:library_id]) if session[:library_id]
   end
 
   def logged_in?
-    !!session[:library_id]
+    !!current_user
   end
 
-  def require_login
+  def redirect_if_not_logged_in
     unless logged_in?
       flash[:message] = "Please log in!"
-      redirect_to root_path
+      redirect_to login_path if !logged_in?
     end
   end
 
