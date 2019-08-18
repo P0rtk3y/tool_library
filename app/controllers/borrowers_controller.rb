@@ -25,7 +25,7 @@ private
 
 
   def borrower_params
-    params.require(:borrower).permit(:name)
+    params.require(:borrower).permit(:name, :library_id)
   end
 
 

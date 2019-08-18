@@ -3,6 +3,7 @@
 <%= form_for @borrower do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.hidden_field :library_id, value: current_user.id %> #associates current library
 
   <%= f.submit "Add" %>
 <% end %>
