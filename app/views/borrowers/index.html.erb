@@ -1,0 +1,7 @@
+<h1>All Borrowers Old and New</h1>
+
+<% @borrowers.each do |b|%>
+    <li><%= b.name%></li>
+<% end %>
+
+<%= link_to "Add Borrower", new_borrower_path(@borrower) %>

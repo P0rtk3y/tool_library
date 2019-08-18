@@ -1,1 +1,8 @@
-<h1>Add a Borrower</h1> 
+<h1>Add a Borrower</h1>
+<%= flash[:message] if flash[:message] %>
+<%= form_for @borrower do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Add" %>
+<% end %>
