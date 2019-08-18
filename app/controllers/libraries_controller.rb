@@ -10,7 +10,6 @@ class LibrariesController < ApplicationController
     @library = Library.new (library_params)
     if @library.save
       session[:library_id] = @library.id
-
     else
       render :new
     end
