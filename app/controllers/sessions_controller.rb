@@ -6,11 +6,10 @@ class SessionsController < ApplicationController
     @library = Library.find_by(username: params[:library][:username])
     if @library && @library.authenticate(params[:library][:password])
       session[:library_id] = @library.id
-      flash[:message] = "Hello #{@library.username}!"
-      redirect_to library_tools_path(@library)
+      redirect_to library_path(@library)
     else
       flash[:message] = "Sorry! Wrong credentials."
-      render :new
+      redirect_to login_path
     end
   end
 
@@ -18,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :library_id
+    session.clear
     redirect_to root_path
   end
 end

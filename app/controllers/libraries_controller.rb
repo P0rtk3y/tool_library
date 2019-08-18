@@ -7,13 +7,17 @@ class LibrariesController < ApplicationController
 
   #signup
   def create
-    @library = Library.new (library_params)
+    @library = Library.new(library_params)
     if @library.save
       session[:library_id] = @library.id
-      redirect_to library_tools_path(@library)
+      redirect_to library_path(@library)
     else
       render :new
     end
+  end
+
+  def show
+    @library = Library.find_by(id: params[:id])
   end
 
   private

@@ -1,11 +1,13 @@
 <h1>Login</h1>
+<%= flash[:message] if flash[:message] %>
 
-<%= form_tag (login_path) do %>
-  <%= label_tag :username %>
-  <%= text_field :username%>
+<%= form_for :library do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
   <br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
   <br>
-  <%= f.submit "Sign In" %>
+  <%= f.submit "Login" %>
 <% end %>

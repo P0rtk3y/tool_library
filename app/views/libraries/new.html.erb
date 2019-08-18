@@ -1,6 +1,6 @@
 <h1>Please sign up:</h1>
 
-<%= form_for(@library) do |f| %>
+<%= form_for @library do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <br>
@@ -10,5 +10,5 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
   <br>
-  <%= f.submit "Signup" %> 
+  <%= f.submit "Signup" %>
 <% end %>
