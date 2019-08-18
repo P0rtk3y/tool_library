@@ -10,12 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_012048) do
+ActiveRecord::Schema.define(version: 2019_08_18_061237) do
+
+  create_table "borrowers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "library_id"
+  end
 
   create_table "libraries", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.datetime "loaned_on"
+    t.integer "duration"
+    t.integer "tool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "borrower_id"
+    t.index ["tool_id"], name: "index_loans_on_tool_id"
+  end
+
+  create_table "tools", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "library_id"
+    t.boolean "in_library"
+    t.datetime "borrowed_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

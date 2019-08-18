@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  resources :tools
-  root 'sessions#home'
+  resources :borrowers
+  resources :loans
+root 'sessions#home'
 
   get '/signup' => 'libraries#new'
   get '/login' =>'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-  resources :libraries
+  resources :libraries do
+    resources :tools
+  end
+
+  resource :sessions
+  resource :tools
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

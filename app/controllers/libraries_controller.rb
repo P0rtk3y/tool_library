@@ -10,6 +10,7 @@ class LibrariesController < ApplicationController
     @library = Library.new (library_params)
     if @library.save
       session[:library_id] = @library.id
+      redirect_to library_tools_path(@library)
     else
       render :new
     end
