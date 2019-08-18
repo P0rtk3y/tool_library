@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_061237) do
+ActiveRecord::Schema.define(version: 2019_08_18_180447) do
 
   create_table "borrowers", force: :cascade do |t|
     t.string "name"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_08_18_061237) do
     t.string "description"
     t.integer "library_id"
     t.boolean "in_library"
-    t.datetime "borrowed_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

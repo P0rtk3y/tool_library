@@ -7,13 +7,6 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <br>
-  <%= f.label :in_library %>
-  <%= f.select :in_library, options_for_select(["yes", "no"]) %>
-
-  <br>
-  <%= f.label :borrowed_on %>
-  <%= f.date_field :borrowed_on %>
 
   <%= f.submit %>
-<% end %> 
+<% end %>
