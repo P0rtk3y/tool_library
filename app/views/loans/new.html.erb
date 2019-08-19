@@ -2,7 +2,7 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @loan} %>
 
-<%= form_for @loan do |f| %>
+<%= form_for [@borrower, @loan] do |f| %>
 
   <%= f.label :loaned_on %>
   <%= f.date_field :loaned_on %>
@@ -13,17 +13,9 @@
   <%= f.label :tool_id %>
   <%= f.collection_select :tool_id, current_user.tools, :id, :name, include_blank: true %>
   <br>
-  <%= f.label :borrower_id, "Select a Borrower" %>
-  <%= f.collection_select :borrower_id, Borrower.all, :id, :name, include_blank: true %>
 
-  <p>Or Create a New Borrower:</p>
-  <%= f.fields_for :borrower do |b| %>
-    <%= b.label :name %>
-    <%= b.text_field :name %>
+  <%= borrower_form_option(f) %>
 
-  <% end %>
-
-  <br>
 
   <%= f.submit %>
 <% end %>

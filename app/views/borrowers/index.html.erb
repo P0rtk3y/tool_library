@@ -2,7 +2,7 @@
 <%= render partial: 'layouts/errors', locals: {object: @borrower} %>
 
 <% @borrowers.each do |b|%>
-    <li><%= b.name%></li>
+    <li><%=link_to "#{b.name}", new_borrower_loan_path(b) %> is borrowing <%= link_to "tool(s)", borrower_loans_path(b) %></li>
 <% end %>
 
 <br>

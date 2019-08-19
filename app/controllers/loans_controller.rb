@@ -7,12 +7,17 @@ class LoansController < ApplicationController
 
   def index
     #return only loans nested under borrowers
-    @loans = Loan.all
+    if params[:borrower_id] && borrower = Borrower.find_by_id(params[:borrower_id])
+      @loans = borrower.loans
+    else
+      @loans = Loan.all
+    end
+
   end
 
   def new
-    if borrower_exists?
-      @loan = @borrower.loans.build
+    if params[:borrower_id] && @borrower = Borrower.find_by_id(params[:borrower_id])
+      @loan = @borrower.loans.build #has_many
     else
       @loan = Loan.new
       @loan.build_borrower #belongs_to
@@ -20,14 +25,14 @@ class LoansController < ApplicationController
   end
 
   def create
-    if borrower_exists?
+    if params[:borrower_id] && @borrower = Borrower.find_by_id(params[:borrower_id])
       @loan = @borrower.loans.build(loan_params)
     else
       @loan = Loan.new(loan_params)
     end
 
     if @loan.save
-      redirect_to loan_path(@loan)
+      redirect_to loans_path
     end
   end
 
@@ -43,8 +48,9 @@ class LoansController < ApplicationController
 
   private
 
-  def borrower_exists?
-    params[:borrower_id] && @borrower = Borrower.find_by(id: params[:borrower_id])
+  def is_nested?
+    if params[:borrower_id] && @borrower = Borrower.find_by_id(params[:borrower_id])
+    end
   end
 
   def loan_params

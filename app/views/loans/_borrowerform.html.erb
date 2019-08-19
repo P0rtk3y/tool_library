@@ -1,0 +1,13 @@
+<%= f.label :borrower_id, "Select a Borrower" %>
+<%= f.collection_select :borrower_id, Borrower.all, :id, :name, include_blank: true %>
+
+<p>Add Borrower:</p>
+<%= f.fields_for :borrower do |b| %>
+  <%= b.label :name %>
+  <%= b.text_field :name %>
+<br>
+
+<%= b.hidden_field :library_id, value: current_user.id %>
+
+<br>
+<% end %>
