@@ -11,7 +11,7 @@
   <%= f.select :duration, options_for_select([1, 2, 3, 4, 5]), include_blank: true %>
   <br>
   <%= f.label :tool_id %>
-  <%= f.collection_select :tool_id, current_user.tools, :id, :name, include_blank: true %>
+  <%= f.collection_select :tool_id, current_user.tools.where(["in_library = ?", true]), :id, :name, include_blank: true %>
   <br>
 
   <%= borrower_form_option(f) %>
