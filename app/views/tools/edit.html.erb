@@ -1,4 +1,4 @@
 <h1>Edit <%= @tool.name %>:</h1>
-
+<%= render partial: 'layouts/errors', locals: {object: @tool} %>
 <%= render "form" %>
 <p><%= button_to "Delete Tool", tool_path(@tool), method: :delete %></p>

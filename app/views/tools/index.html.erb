@@ -1,13 +1,9 @@
 <h1><%=current_user.username %>'s Tool Library</h1>
-
+<%= render partial: 'layouts/errors', locals: {object: @tool} %>
 <% @tools.each do |t|%>
-    <li><%= link_to t.name, tool_path(t) %>:
-      <% if t.in_library %>
-        Available
-      <% else %>
-        On loan
-      <% end %>
-    </li>
+    <li><%= link_to t.name, tool_path(t) %></li>
 <% end %>
 
+<br>
+<%= link_to "Add a Tool", new_tool_path %>
 <%= button_to "Logout", logout_path %>

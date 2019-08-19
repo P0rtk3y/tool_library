@@ -6,5 +6,9 @@ class Loan < ApplicationRecord
 
   def borrower_attributes=(borrower_params)
     byebug
+    borrower = Borrower.find_or_create_by(borrower_params)
+    borrower_params[:name].empty? ? self.borrower : self.borrower = borrower
   end
+
+
 end

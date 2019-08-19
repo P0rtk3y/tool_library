@@ -1,4 +1,5 @@
 <h1>All Borrowers Old and New</h1>
+<%= render partial: 'layouts/errors', locals: {object: @borrower} %>
 
 <% @borrowers.each do |b|%>
     <li><%= b.name%></li>

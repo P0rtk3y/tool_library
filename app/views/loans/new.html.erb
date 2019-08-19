@@ -1,5 +1,7 @@
 <h1>Add a Loan</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @loan} %>
+
 <%= form_for @loan do |f| %>
 
   <%= f.label :loaned_on %>

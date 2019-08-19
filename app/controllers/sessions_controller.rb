@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
+    session.delete :library_id
     redirect_to root_path
   end
 end

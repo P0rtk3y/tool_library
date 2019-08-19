@@ -1,5 +1,5 @@
 
-<p><strong><%= @tool.name %></strong> is <%= @tool.description %></p>
+<p><strong><%= @tool.name %></strong>: <%= @tool.description %></p>
 <ul>Status:
   <% if @tool.in_library %>
     Available!
@@ -8,3 +8,4 @@
   <% end %>
 </ul>
 <%= link_to "Edit Tool", edit_tool_path(@tool) %>
+<%= link_to "All Tools", tools_path %>
