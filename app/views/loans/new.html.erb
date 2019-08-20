@@ -2,6 +2,7 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @loan} %>
 
+
 <%= form_for [@borrower, @loan] do |f| %>
 
   <%= f.label :loaned_on %>

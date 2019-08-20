@@ -2,6 +2,8 @@
 <%= f.collection_select :borrower_id, Borrower.all, :id, :name, include_blank: true %>
 
 <p>Add Borrower:</p>
+<%= render partial: 'layouts/errors', locals: {object: @loan.borrower} %>
+
 <%= f.fields_for :borrower do |b| %>
   <%= b.label :name %>
   <%= b.text_field :name %>

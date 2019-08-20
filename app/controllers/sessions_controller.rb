@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:library_id] = @library.id
       redirect_to library_path(@library)
     else
-      flash[:message] = "Sorry! Wrong credentials."
+      flash[:message] = "Login invalid"
       redirect_to login_path
     end
   end

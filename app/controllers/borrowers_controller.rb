@@ -16,7 +16,6 @@ class BorrowersController < ApplicationController
     if @borrower.save
       redirect_to borrowers_path
     else
-      flash[:message] = "Borrower exists!"
       render :new
     end
   end
