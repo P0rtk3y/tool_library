@@ -2,6 +2,7 @@
 
 <% @loans.each do |l| %>
   <ul>
-    <%=link_to l.tool.name, tool_path(l.tool) %> was loaned on: <%=link_to l.loaned_on.strftime("%b %e, %l:%M %p"), loan_path(l.borrower)%> to <%= l.borrower.name %>
+    <%=l.loaned_on.strftime("%b %e, %l:%M %p")%>: <%=link_to l.tool.name, tool_path(l.tool) %> was loaned to <%= l.borrower.name %>
+    for <%=l.duration%> days from <%= l.tool.library.username %>
   </ul>
 <% end %>

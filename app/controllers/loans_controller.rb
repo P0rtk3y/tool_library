@@ -8,9 +8,9 @@ class LoansController < ApplicationController
   def index
     #return only loans nested under borrowers
     if params[:borrower_id] && borrower = Borrower.find_by_id(params[:borrower_id])
-      @loans = borrower.loans
+      @loans = borrower.loans.order('loaned_on DESC')
     else
-      @loans = Loan.all
+      @loans = Loan.all.order('loaned_on DESC')
     end
 
   end
