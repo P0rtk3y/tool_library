@@ -33,6 +33,8 @@ class LoansController < ApplicationController
 
     if @loan.save
       redirect_to loans_path
+    else
+      render :new
     end
   end
 
