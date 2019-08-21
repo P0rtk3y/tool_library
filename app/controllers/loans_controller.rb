@@ -32,6 +32,7 @@ class LoansController < ApplicationController
     end
 
     if @loan.save
+      @tool = Tool.update(@loan.tool.id, in_library: false)
       redirect_to loans_path
     else
       render :new
