@@ -1,7 +1,6 @@
 # README
 
-Tool Library
-Tool Library is an app to help you track your tools when you loan them to borrowers.
+Tool Library is an app to help you track your tools when you loan them to borrowers. Tool Library also lets you see other tools loaned from the tool library community. 
 
 Installation
 Clone or download the repository from here: https://github.com/P0rtk3y/tool_library

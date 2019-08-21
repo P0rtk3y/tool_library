@@ -1,6 +1,7 @@
 <%= flash[:message] if flash[:message] %>
 
 <h1><%= @loan.tool.name %>'s Loan Info: </h1>
+
 <p>You loaned <strong><%= @loan.tool.name %></strong> to <strong><%= @loan.borrower.name %></strong> on <%= @loan.loaned_on.strftime("%b %e, %l:%M %p") %>, for <strong><%= @loan.duration %> days</strong>.</p>
 
 <%= link_to "Return Tool", edit_loan_path %>

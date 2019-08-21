@@ -7,4 +7,12 @@ class Library < ApplicationRecord
 
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
+
+  def self.from_omniauth(auth)
+    where(email: auth.info.email).first_or_initialize do |library|
+      library.username = auth.info.name
+      library.email = auth.info.email
+      library.password = SecureRandom.hex
+    end
+  end
 end

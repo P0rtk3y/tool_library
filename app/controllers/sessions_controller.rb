@@ -22,4 +22,17 @@ class SessionsController < ApplicationController
     session.delete :library_id
     redirect_to root_path
   end
+
+  def google_login
+    @library = Library.from_omniauth(auth)
+    @library.save
+    session[:library_id] = @library.id
+    redirect_to library_path(@library.id)
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
 end
